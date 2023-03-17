@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:midnightblue;
+    color:white;
+    font-family: "Open Sans";
+    font-weight: 700;
+    font-size:medium;
+    cursor: default;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#logo {
+    color: gold;
+    margin: 0 10px;
+}
+
+h1 {
+    color: gold;
+    font-family: "Righteous";
+    font-size: 40pt;
+    margin: 0;
+    padding: 0;
+}
+
+#subtitle {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 18pt;
+    font-style: italic;
+    margin: 0 20px;
+    padding: 0;
+}
