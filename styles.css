@@ -121,7 +121,8 @@ main {
     display: inline-grid;
     align-items: center;
     vertical-align: middle;
-    grid-template-columns: 150px 308px
+    grid-template-columns: 150px 308px;
+    margin: 5px;
 }
 
 label {
@@ -167,6 +168,19 @@ label {
 
 #cancel-button:active {
     background-color: #aaa;
+}
+
+input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    resize: vertical;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
 /* Remove arrows from number inputs in Chrome, Safari, Edge, Opera */
