@@ -43,11 +43,19 @@ let index = 0;
 // grab the display panel's fields to populate with data
 let movieTitle = document.getElementById("movie-title");
 let moviePlot = document.getElementById("movie-plot");
+let movieCast = document.getElementById("movie-cast");
 let movieRuntime = document.getElementById("movie-runtime");
 let movieRating = document.getElementById("movie-rating");
-let movieCast = document.getElementById("movie-cast");
+// grab the editor interface
 let tinter = document.getElementById("tinter");
 let editor = document.getElementById("editor");
+// grab the editor form IDs
+let title = document.getElementById("title");
+let year = document.getElementById("year");
+let plot = document.getElementById("plot");
+let cast = document.getElementById("cast");
+let runtime = document.getElementById("runtime");
+let rating = document.getElementById("rating");
 
 // initialise display to show first movie on list
 showMovie(index);
@@ -58,9 +66,9 @@ function showMovie(x) {
     if (keys.length === 0) {
         movieTitle.innerHTML = "";
         moviePlot.innerHTML = "Congratulations, you deleted everything. Why did you do it?";
+        movieCast.innerHTML = "";
         movieRuntime.innerHTML = "";
         movieRating.innerHTML = "";
-    movieCast.innerHTML = "";
         return;
     }
     movieTitle.innerHTML = `${keys[x]} (${movieData[keys[x]].year})`;
@@ -84,7 +92,7 @@ function castString(x) {
 
 // goes to previous movie in the list, skips to end of list if past beginning
 function lastMovie() {
-    if(index === 0) {
+    if (index === 0) {
         index = keys.length - 1;
     } else {
         index--;
@@ -103,8 +111,17 @@ function nextMovie() {
 
 // edits the currently displayed movie
 function editMovie() {
+    // show editor
     tinter.style.display = "block";
     editor.style.display = "block";
+    
+    // populate form fields with current movie's data
+    title.value = keys[index];
+    year.value = movieData[keys[index]].year;
+    plot.value = movieData[keys[index]].plot;
+    cast.value = castString(index);
+    runtime.value = movieData[keys[index]].runtime;
+    rating.value = movieData[keys[index]].rating;
 }
 
 // deletes current movie, goes to previous movie
@@ -114,6 +131,7 @@ function deleteMovie() {
     lastMovie();
 }
 
+// close the editor window without saving
 function closeEditor() {
     tinter.style.display = "none";
     editor.style.display = "none";
