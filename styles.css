@@ -40,12 +40,52 @@ main {
     background-color: azure;
     color: black;
     margin: 20px;
-    padding: 10px 20px;
+
     width: 600px;
     border-radius: 10px;
     box-shadow: 0px 0px 20px black;
 }
 
+#display-title {
+    background-color: #ccc;
+    font-family: "Open Sans";
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+#data-container {
+    padding: 0 30px 20px 30px;
+}
+
 .data-heading {
     font-weight: bold;
+}
+
+#controls {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.controls-button {
+    background-color: gold;
+    color: midnightblue;
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    border-radius: 20px;
+    transition: 0.2s;
+    box-shadow: 0 0 10px black;
+}
+
+.controls-button:hover {
+    background-color: hsl(51, 100%, 70%);
+}
+
+.controls-button:active {
+    background-color: hsl(51, 100%, 80%);
 }
