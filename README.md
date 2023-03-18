@@ -8,6 +8,10 @@
 - Created the main panel that will display the movie data and populated it with the first movie from the movieData object as dummy text.
 - Styled the main panel.
 - Added control panel.
+- Added function to display a movie and an index to track the current position.
+- Added function to go to the next movie, or go to the beginning if called at the last item in the list.
+- Added function to go to the previous movie, or go to the end if called at the first item in the list.
+- Added function to delete currently displayed movie.
 # Debugging
 - I tried to implement a `<meter>` element for the score, and wasted time fiddling with it. In the end, a simple number looks best.
 - Tweaked the appearance of the inside of the display panel a little.
