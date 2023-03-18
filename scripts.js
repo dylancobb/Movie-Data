@@ -37,7 +37,11 @@ let movieData = {
 
 // keys is initialised as an array holding the keys to movieData
 // keys must be updated after any entries, deleted, or titles are changed
-let keys = Object.keys(movieData);
+let keys;
+updateKeys();
+function updateKeys() {
+    keys = Object.keys(movieData);
+}
 // stores the current movie index
 let index = 0;
 // grab the display panel's fields to populate with data
@@ -59,7 +63,6 @@ let rating = document.getElementById("rating");
 
 // initialise display to show first movie on list
 showMovie(index);
-editMovie();
 
 // displays movie at entered index
 function showMovie(x) {
@@ -124,11 +127,45 @@ function editMovie() {
     rating.value = movieData[keys[index]].rating;
 }
 
+function newMovie() {
+    movieData["Enter Movie Title"] = {
+        plot: "Enter plot description",
+        cast: ["Enter cast names separated by commas"],
+        runtime: 150,
+        rating: 7.0,
+        year: 1999,
+    }
+    updateKeys();
+    index = keys.length - 1;
+    showMovie(index);
+    editMovie();
+}
+
 // deletes current movie, goes to previous movie
 function deleteMovie() {
     delete movieData[keys[index]];
-    keys = Object.keys(movieData);
+    updateKeys();
     lastMovie();
+}
+
+// saves the changes and updates display
+function saveChanges() {
+    if (keys[index] !== title.value) {
+        Object.defineProperty(movieData, title.value,
+            Object.getOwnPropertyDescriptor(movieData, keys[index]));
+        delete movieData[keys[index]];
+        updateKeys();
+        lastMovie();
+    }
+    movieData[keys[index]].year = year.value;
+    movieData[keys[index]].plot = plot.value;
+    let Arr = cast.value.split(',');
+    movieData[keys[index]].cast = Arr;
+    movieData[keys[index]].runtime = runtime.value;
+    movieData[keys[index]].rating = rating.value;
+
+    showMovie(index);
+    closeEditor();
 }
 
 // close the editor window without saving
