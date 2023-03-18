@@ -12,7 +12,12 @@
 - Added function to go to the next movie, or go to the beginning if called at the last item in the list.
 - Added function to go to the previous movie, or go to the end if called at the first item in the list.
 - Added function to delete currently displayed movie.
+- Added tinted div to darken the page beneath the editor form.
+- Added editor form and fields.
+- Added editor form buttons to close and save.
+- Added function to close the form (including clicking outside the form).
 # Debugging
 - I tried to implement a `<meter>` element for the score, and wasted time fiddling with it. In the end, a simple number looks best.
 - Tweaked the appearance of the inside of the display panel a little.
 - Fiddled with the CSS class controlling the display of button icons.
+- Lots of styling tweaks to get the form to display properly.

@@ -6,8 +6,8 @@ body {
     background-color: midnightblue;
     color: white;
     font-family: "Open Sans";
-    font-weight: 400;
-    font-size: medium;
+    font-weight: normal;
+    font-size: large;
     cursor: default;
 }
 
@@ -88,4 +88,95 @@ main {
 
 .controls-button:active {
     background-color: hsl(51, 100%, 80%);
+}
+
+#tinter {
+    background-color: hsla(0, 0%, 0%, 0.66);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+#editor {
+    background-color: azure;
+    color: black;
+    position: absolute;
+    top: 70px;
+    left: calc(50% - 300px);
+    margin: 0;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px black;
+    display: none;
+}
+
+#edit-form {
+    margin: 30px 75px;
+}
+
+.form-field {
+    display: inline-grid;
+    align-items: center;
+    vertical-align: middle;
+    grid-template-columns: 150px 308px
+}
+
+label {
+    font-size: large;
+    font-weight: bold;
+}
+
+#editor-buttons {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.form-button {
+    padding: 10px;
+    border-radius: 4px;
+    width: 80px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.2s
+}
+
+#save-button {
+    background-color: midnightblue;
+    color:white;
+}
+
+#save-button:hover {
+    background-color: hsl(240, 64%, 42%);
+}
+
+#save-button:active {
+    background-color: hsl(240, 64%, 57%);
+}
+
+#cancel-button {
+    background-color: #ccc;
+}
+
+#cancel-button:hover {
+    background-color: #bbb;
+}
+
+#cancel-button:active {
+    background-color: #aaa;
+}
+
+/* Remove arrows from number inputs in Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove arrows from number inputs in Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

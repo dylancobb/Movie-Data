@@ -46,17 +46,40 @@ let moviePlot = document.getElementById("movie-plot");
 let movieRuntime = document.getElementById("movie-runtime");
 let movieRating = document.getElementById("movie-rating");
 let movieCast = document.getElementById("movie-cast");
+let tinter = document.getElementById("tinter");
+let editor = document.getElementById("editor");
 
 // initialise display to show first movie on list
 showMovie(index);
+editMovie();
 
 // displays movie at entered index
 function showMovie(x) {
+    if (keys.length === 0) {
+        movieTitle.innerHTML = "";
+        moviePlot.innerHTML = "Congratulations, you deleted everything. Why did you do it?";
+        movieRuntime.innerHTML = "";
+        movieRating.innerHTML = "";
+    movieCast.innerHTML = "";
+        return;
+    }
     movieTitle.innerHTML = `${keys[x]} (${movieData[keys[x]].year})`;
     moviePlot.innerHTML = movieData[keys[x]].plot;
     movieRuntime.innerHTML = `<span class="data-heading">Runtime:</span> ${movieData[keys[x]].runtime} minutes`;
     movieRating.innerHTML = `<span class="data-heading">Rating</span>: ${movieData[keys[x]].rating}`;
-    movieCast.innerHTML = `<span class="data-heading">Starring:</span> ${movieData[keys[x]].cast}`;
+    movieCast.innerHTML = `<span class="data-heading">Starring:</span> ${castString(x)}`;
+}
+
+// converts cast list into a properly formatted string for printing
+function castString(x) {
+    let str = "";
+    for (i = 0; i < movieData[keys[x]].cast.length; i++) {
+        if (i !== 0) {
+            str += ", ";
+        }
+        str += movieData[keys[x]].cast[i];
+    }
+    return str;
 }
 
 // goes to previous movie in the list, skips to end of list if past beginning
@@ -78,9 +101,20 @@ function nextMovie() {
     showMovie(index);
 }
 
+// edits the currently displayed movie
+function editMovie() {
+    tinter.style.display = "block";
+    editor.style.display = "block";
+}
+
 // deletes current movie, goes to previous movie
 function deleteMovie() {
     delete movieData[keys[index]];
     keys = Object.keys(movieData);
     lastMovie();
+}
+
+function closeEditor() {
+    tinter.style.display = "none";
+    editor.style.display = "none";
 }
