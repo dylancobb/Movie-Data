@@ -121,7 +121,7 @@ main {
     display: inline-grid;
     align-items: center;
     vertical-align: middle;
-    grid-template-columns: 150px 308px;
+    grid-template-columns: 150px 300px;
     margin: 5px;
 }
 
@@ -193,4 +193,53 @@ input::-webkit-inner-spin-button {
 /* Remove arrows from number inputs in Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 700px) {   
+    #logo {
+        height: 35px;
+        width: 35px;
+    }
+    
+    h1 {
+        font-size: 28pt;
+    }
+
+    body {
+        font-size: medium;
+    }
+
+    #display {
+        width: calc(100% - 60px);
+    }
+
+    #display-title {
+        font-size: large;
+    }
+
+    h2 {
+        font-size: x-large;
+    }
+
+    #editor {
+        left: calc(50% - ((100% - 60px)/2));
+        width: calc(100% - 60px);
+    }
+
+    #edit-form {
+        margin: 30px 30px;
+    }
+
+    .form-field {
+        display: inline-grid;
+        align-items: center;
+        vertical-align: middle;
+        grid-template-columns: 110px calc(100vw - 240px);
+        margin: 5px;
+    }
+    
+    label {
+        font-size:medium;
+        font-weight: bold;
+    }
 }

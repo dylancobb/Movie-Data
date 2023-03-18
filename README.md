@@ -18,9 +18,11 @@
 - Added function to close the form (including clicking outside the form).
 - Implemented the movie edit function.
 - Implemented the new movie creation function.
+- Made sure the page displays well on all screen sizes using @media queries.
 # Debugging
 - I tried to implement a `<meter>` element for the score, and wasted time fiddling with it. In the end, a simple number looks best.
 - Tweaked the appearance of the inside of the display panel a little.
 - Fiddled with the CSS class controlling the display of button icons.
 - Lots of styling tweaks to get the form to display properly.
 - Figuring out how to split string input to feed to an array took some googling.
+- Spent some time adjusting @media query settings to get acceptable display on desktop and mobile.
