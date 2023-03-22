@@ -26,3 +26,4 @@
 - Lots of styling tweaks to get the form to display properly.
 - Figuring out how to split string input to feed to an array took some googling.
 - Spent some time adjusting @media query settings to get acceptable display on desktop and mobile.
+- Form could be submitted even with incorrectly filled fields. Implemented a check via the reportValidity() function.

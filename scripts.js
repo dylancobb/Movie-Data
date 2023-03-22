@@ -54,6 +54,7 @@ let movieRating = document.getElementById("movie-rating");
 let tinter = document.getElementById("tinter");
 let editor = document.getElementById("editor");
 // grab the editor form IDs
+let form = document.getElementById("edit-form");
 let title = document.getElementById("title");
 let year = document.getElementById("year");
 let plot = document.getElementById("plot");
@@ -150,22 +151,24 @@ function deleteMovie() {
 
 // saves the changes and updates display
 function saveChanges() {
-    if (keys[index] !== title.value) {
-        Object.defineProperty(movieData, title.value,
-            Object.getOwnPropertyDescriptor(movieData, keys[index]));
-        delete movieData[keys[index]];
-        updateKeys();
-        lastMovie();
+    if(form.reportValidity()) {
+        if (keys[index] !== title.value) {
+            Object.defineProperty(movieData, title.value,
+                Object.getOwnPropertyDescriptor(movieData, keys[index]));
+            delete movieData[keys[index]];
+            updateKeys();
+            lastMovie();
+        }
+        movieData[keys[index]].year = year.value;
+        movieData[keys[index]].plot = plot.value;
+        let Arr = cast.value.split(',');
+        movieData[keys[index]].cast = Arr;
+        movieData[keys[index]].runtime = runtime.value;
+        movieData[keys[index]].rating = rating.value;
+    
+        showMovie(index);
+        closeEditor();
     }
-    movieData[keys[index]].year = year.value;
-    movieData[keys[index]].plot = plot.value;
-    let Arr = cast.value.split(',');
-    movieData[keys[index]].cast = Arr;
-    movieData[keys[index]].runtime = runtime.value;
-    movieData[keys[index]].rating = rating.value;
-
-    showMovie(index);
-    closeEditor();
 }
 
 // close the editor window without saving
