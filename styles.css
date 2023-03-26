@@ -5,7 +5,7 @@
 body {
     background-color: midnightblue;
     color: white;
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
     font-weight: normal;
     font-size: large;
     cursor: default;
@@ -24,7 +24,7 @@ header {
 
 h1 {
     color: gold;
-    font-family: "Righteous";
+    font-family: "Righteous", sans-serif;
     font-size: 40pt;
     margin: 0;
     padding: 0;
@@ -48,7 +48,7 @@ main {
 
 #display-title {
     background-color: #ccc;
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
     font-size: x-large;
     font-weight: bold;
     color: black;
